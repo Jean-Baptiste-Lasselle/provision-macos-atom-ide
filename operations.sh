@@ -8,6 +8,8 @@ export VERSION_ATOM_IDE=xxx
 mkdir -p $MAISON_OPS
 cd $MAISON_OPS
 
+# petite condition su r la package manager
+sudo apt-get install -y apt-transport-https
 
 # 1ère méthode de la doc officielle : ne fonctionne pas sur debain stretch
 # sudo apt-get install -y atom
