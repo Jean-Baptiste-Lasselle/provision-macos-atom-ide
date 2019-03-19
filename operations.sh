@@ -18,7 +18,7 @@ export URI_TELECHARGEMENT_PKG_DEBIAN=https://atom.io/download/deb
 
 
 
-wget $URI_TELECHARGEMENT_PKG_DEBIAN
+wget -o atom-amd64.deb $URI_TELECHARGEMENT_PKG_DEBIAN
 # le nom du packag ne varie jamais avecles versions ... ouh je sens que je vais les aimer, eux.
 sudo dpkg -i atom-amd64.deb
 sudo apt-get -f install
