@@ -2,32 +2,23 @@
 
 export MAISON_OPS=~/.pegasus.ide
 
-export VERSION_ATOM_IDE=xxx
 
+export VERSION_ATOM_IDE=1.53.0
+
+export DWNLD_URI_ATOM_IDE=https://github.com/atom/atom/releases/download/v${VERSION_ATOM_IDE}/atom-mac.zip
 
 mkdir -p $MAISON_OPS
 cd $MAISON_OPS
 
-# petite condition su r la package manager
-sudo apt-get install -y apt-transport-https
+curl -LO ${DWNLD_URI_ATOM_IDE}
 
-# 1ère méthode de la doc officielle : ne fonctionne pas sur debain stretch
-# sudo apt-get install -y atom
+atom-mac.zip
 
-#2ième
-# export URI_TELECHARGEMENT_PKG_DEBIAN=https://atom.io/download/deb
+unzip atom-mac.zip -d .
 
+# then we have a Atom.app folder
+mv Atom.app $HOME/Applications
 
-# curl $URI_TELECHARGEMENT_PKG_DEBIAN > atom-amd64.deb
-# le nom du packag ne varie jamais avecles versions ... ouh je sens que je vais les aimer, eux.
-# sudo dpkg -i atom-amd64.deb
-# sudo apt-get -f install
-# et cela ne marche pas du tout sur Debian 9....c'est tout...
+echo "I do not know what to do next"
 
-
-# 3ième 
-wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
-sudo apt-get update -y 
-
-sudo apt-get install -y atom
+exit 1
